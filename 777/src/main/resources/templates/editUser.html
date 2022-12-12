@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update person</title>
+</head>
+<body>
+<div>
+  <th:block th:include="menu">Menu</th:block>
+</div>
+<form action="#" th:action="@{/admin/edit/{id}(id=${user.getId()})}" th:object="${user}" th:method="POST" >
+  <label for="email">EMail: </label>
+  <input type="text" th:field="*{email}" id="email" required/>
+  <br/>
+  <label for="password">Пароль: </label>
+  <input type="text" th:field="*{password}" id="password" required/>
+  <br/>
+  <label for="firstName">Имя: </label>
+  <input type="text" th:field="*{firstName}" id="firstName" required/>
+  <br/>
+  <label for="lastName">Фамилия: </label>
+  <input type="text" th:field="*{lastName}" id="lastName" required/>
+  <br/>
+  <label>
+    <input type="checkbox" name="roleAdmin" th:value="ADMIN" th:text="Администратор">
+  </label>
+  <label>
+    <input type="checkbox" name="roleUser" th:value="USER" th:text="Пользователь">
+  </label>
+  <button type="submit">Сохранить пользователя</button>
+</form>
+
+</body>
+</html>
